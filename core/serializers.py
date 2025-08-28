@@ -27,11 +27,15 @@ class FoodIngredientSerializer(serializers.ModelSerializer):
 
 
 class FoodSerializer(serializers.ModelSerializer):
-    ingredients = serializers.StringRelatedField(many=True, read_only=True)
+    category = serializers.StringRelatedField()
+    ingredients = serializers.SerializerMethodField()
 
     class Meta:
         model = Food
         fields = ["id", "title", "category", "ingredients"]
+
+    def get_ingredients(self, obj):
+        return [fi.ingredient.name for fi in obj.ingredients.all()]
 
 
 class RatingSerializer(serializers.ModelSerializer):
