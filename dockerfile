@@ -1,30 +1,14 @@
-# Imagen base oficial de Python
-from python:3.13-slim
+FROM python:3.11-slim
 
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
-# Evita que Python guarde archivos .pyc y buffers
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# Crear directorio de la app
 WORKDIR /app
+RUN pip install --upgrade pip
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
-# Instalar dependencias del sistema (ej: para psycopg2 si usas Postgres)
-RUN apt-get update \
-    && apt-get install -y build-essential libpq-dev \
-    && rm -rf /var/lib/apt/lists/*
+COPY . .
+ENV DJANGO_SETTINGS_MODULE=backend.config.settings.prod
 
-# Copiar requirements si existe
-COPY requirements.txt /app/
-
-# Instalar dependencias
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copiar todo el código del proyecto
-COPY . /app/
-
-# Exponer el puerto
-EXPOSE 8000
-
-# Comando para correr el servidor de desarrollo
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["bash", "-lc", "python manage.py collectstatic --noinput && python manage.py migrate && gunicorn backend.wsgi:application --bind 0.0.0.0:8000"]
