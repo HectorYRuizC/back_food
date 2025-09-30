@@ -11,7 +11,7 @@ class User(AbstractUser):
     created_at = models.DateTimeField(auto_now_add=True)
     rol = models.ForeignKey(Rol,on_delete=models.CASCADE, related_name="user_rol", null=True)
 
-
-    REQUIRED_FIELDS = ["email"]
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
     def __str__(self):
         return self.username
