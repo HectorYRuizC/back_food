@@ -1,10 +1,23 @@
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, status
+from rest_framework.views import APIView
 from django_filters.rest_framework import FilterSet, filters
+from rest_framework.response import Response
 from .models import Food, Category, Ingredient
 from .serializers import FoodSerializer, CategorySerializer, IngredientSerializer
 from core.permissions import IsStaffOrReadOnly
 
 
+
+class AllFoodsView(APIView):
+    def get(self, request):
+        foods = Food.objects.all()
+        serializer = FoodSerializer(foods, many=True)
+        return Response(serializer.data,status=status.HTTP_200_OK)
+
+
+
+
+###################################
 
 class FoodFilter(FilterSet):
     category = filters.NumberFilter(field_name="category_id")

@@ -14,6 +14,7 @@ class Food(models.Model):
     title = models.CharField(max_length=255)
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name="foods")
     ingredients = models.ManyToManyField(Ingredient, through="FoodIngredient", related_name="foods")
+    imgUrl = models.CharField(max_length=255)
 
     def __str__(self): return self.title
 
