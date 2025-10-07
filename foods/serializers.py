@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Food, Category, Ingredient, FoodIngredient
+from ratings.models import Rating
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -40,3 +41,25 @@ class FoodSerializer(serializers.ModelSerializer):
         if ingredients is not None:
             instance.ingredients.set(ingredients)
         return instance
+
+class FoodWithRatingSerializer(serializers.ModelSerializer):
+    rating = serializers.SerializerMethodField()
+    date = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Food
+        fields = ['id', 'title', 'imgUrl', 'rating', 'date']
+
+    def _get_rating_obj(self, obj):
+        # ratings_map expected to be keyed by Food instances (r.food)
+        return self.context.get('ratings_map', {}).get(obj)
+
+    def get_rating(self, obj):
+        rating_obj = self._get_rating_obj(obj)
+        return rating_obj.rating if rating_obj else 0
+
+    def get_date(self, obj):
+        rating_obj = self._get_rating_obj(obj)
+        if rating_obj and getattr(rating_obj, 'timestamp', None):
+            return rating_obj.timestamp.strftime('%d/%m/%Y')
+        return ''
