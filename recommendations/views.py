@@ -1,11 +1,32 @@
 from rest_framework import viewsets, permissions, status
-from rest_framework.decorators import action
+from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.response import Response
 from django.db.models import Avg
 from foods.models import Food
 from .models import RecommendationSession, SessionItem
 from .serializers import RecommendationSessionSerializer
 from core.permissions import IsOwner
+from rest_framework.permissions import IsAuthenticated
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def user_packs(request):
+    user = request.user
+
+    # Prefetch foods through items → avoids N+1 queries
+    sessions = RecommendationSession.objects.filter(user=user).prefetch_related('items__food')
+
+    result = []
+    for session in sessions:
+        foods = [item.food.title for item in session.items.all()] # type: ignore
+        pack_date = session.created_at.strftime('%d/%m/%Y')
+        result.append({
+            'foods': foods,
+            'pack_date': pack_date
+        })
+
+    return Response(result)
+
 
 class SessionViewSet(viewsets.ModelViewSet):
     serializer_class = RecommendationSessionSerializer
