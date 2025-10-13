@@ -5,13 +5,13 @@ class Command(BaseCommand):
     help = "Puebla la base de datos con categorías, ingredientes y comidas de ejemplo."
 
     def handle(self, *args, **options):
-        # 1️⃣ Crear categorías
+        # Crear categorías
         categories = ["Desayuno", "Almuerzo", "Cena", "Snacks", "Postres"]
         category_objs = {}
         for cat in categories:
             category_objs[cat], _ = Category.objects.get_or_create(name=cat)
 
-        # 2️⃣ Crear ingredientes
+        #Crear ingredientes
         ingredients = [
             "Chorizo",
             "Camarón",
@@ -130,7 +130,7 @@ class Command(BaseCommand):
         for ing in ingredients:
             ingredient_objs[ing], _ = Ingredient.objects.get_or_create(name=ing)
 
-        # 3️⃣ Crear comidas
+        # Crear comidas
         foods_data = [
             {
                 "title": "Arroz con Pollo",
