@@ -4,10 +4,10 @@ from django.urls import include, path
 
 
 router = DefaultRouter()
-router.register("sessions", SessionViewSet, basename="sessions")
+router.register("/sessions", SessionViewSet, basename="sessions")
 urlpatterns = router.urls
 
 urlpatterns = [
     path('',include(router.urls)),
-    path('packs/', user_packs, name='user-packs'),
+    path('packs', user_packs, name='user-packs'),
 ]

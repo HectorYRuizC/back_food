@@ -16,6 +16,7 @@ class AllFoodsView(APIView):
         return Response(serializer.data,status=status.HTTP_200_OK)
 
 class FoodWithRatingsView(generics.ListAPIView):
+    pagination_class = None
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = FoodWithRatingSerializer
     queryset = Food.objects.all()
