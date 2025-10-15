@@ -11,5 +11,5 @@ router.register("ingredients", IngredientViewSet, basename="ingredients")
 urlpatterns = [
     path('',include(router.urls)),
     path('foods',AllFoodsView.as_view()),
-    path('ratings/', FoodWithRatingsView.as_view(), name='food-ratings'),
+    path('ratings', FoodWithRatingsView.as_view(), name='food-ratings'),
 ]

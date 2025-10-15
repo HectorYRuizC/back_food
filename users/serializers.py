@@ -94,19 +94,22 @@ class UserProfileSerializer(serializers.ModelSerializer):
             return {
                 "exist": False,
                 "title": "No foods rated yet",
-                "url_photo": "https://non-existing"
+                "url_photo": "https://non-existing",
+                "rating": 0
             }
         top_rating = ratings.order_by('-rating', 'id').first()
         if not top_rating or not top_rating.food:
             return {
                 "exist": False,
                 "title": "No foods rated yet",
-                "url_photo": "https://non-existing"
+                "url_photo": "https://non-existing",
+                "rating": 0
             }
         return {
             "exist": True,
             "title": top_rating.food.title,
             "url_photo": top_rating.food.imgUrl,
+            "rating": top_rating.rating
         }
     
     def get_least_favorite_meal(self, obj):
@@ -116,7 +119,8 @@ class UserProfileSerializer(serializers.ModelSerializer):
             return {
                 "exist": False,
                 "title": "No foods rated yet",
-                "url_photo": "https://non-existing"
+                "url_photo": "https://non-existing",
+                "rating": 0
             }
         # Only one rating → same as favorite
         if ratings.count() == 1:
@@ -125,12 +129,14 @@ class UserProfileSerializer(serializers.ModelSerializer):
                 return {
                     "exist": False,
                     "title": "No foods rated yet",
-                    "url_photo": "https://non-existing"
+                    "url_photo": "https://non-existing",
+                    "rating": 0
                 }
             return {
                 "exist": True,
                 "title": only.food.title,
                 "url_photo": only.food.imgUrl,
+                "rating": only.rating
             }
         # Get lowest-rated food
         low_rating = ratings.order_by('rating', 'id').first()
@@ -139,10 +145,12 @@ class UserProfileSerializer(serializers.ModelSerializer):
             return {
                 "exist": False,
                 "title": "No foods rated yet",
-                "url_photo": "https://non-existing"
+                "url_photo": "https://non-existing",
+                "rating": 0
             }
         return {
             "exist": True,
             "title": low_rating.food.title,
             "url_photo": low_rating.food.imgUrl,
+            "rating": low_rating.rating
         }
