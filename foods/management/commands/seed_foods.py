@@ -139,6 +139,96 @@ class Command(BaseCommand):
                 "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760035288/arroz-pollo_g4szsd.jpg"
             },
             {
+                "title": "Sancocho de gallina",
+                "category": "Almuerzo",
+                "ingredients": ["Gallina", "Yuca", "Plátano verde"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283792/Sancocho_de_gallina_jmglhg.jpg"
+            },
+            {
+                "title": "Sopa de costilla",
+                "category": "Almuerzo",
+                "ingredients": ["Costilla de res", "Papa", "Zanahoria", "Cebolla", "Ajo", "Cilantro", "Comino", "Sal", "Agua"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283792/Sopa_de_costilla_ui8dyl.jpg"
+            },
+            {
+                "title": "Pizza",
+                "category": "Cena",
+                "ingredients": ["Masa de pizza", "Salsa de tomate", "Queso mozzarella", "Pepperoni", "Champiñones", "Aceitunas", "Orégano", "Aceite de oliva"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283792/Pizza_frgss0.jpg"
+            },
+            {
+                "title": "Chicharrón con yuca",
+                "category": "Almuerzo",
+                "ingredients": ["Carne de cerdo", "Yuca", "Sal", "Ajo", "Comino", "Aceite", "Limón", "Ají"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760287387/Chicharr%C3%B3n_con_yuca_tnhxm7.png"
+            },
+            {
+                "title": "Sopa de mondongo",
+                "category": "Almuerzo",
+                "ingredients": ["Mondongo de res", "Papa", "Yuca", "Verduras"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283792/Sopa_de_mondongo_ca9cmc.jpg"
+            },
+            {
+                "title": "Arroz de coco con pescado frito",
+                "category": "Almuerzo",
+                "ingredients": ["Arroz blanco", "Leche de coco", "Azúcar morena", "Sal", "Agua", "Aceite vegetal", "Mantequilla", "Coco rallado", "Pescado", "Ajo", "Comino", "Pimienta", "Limón", "Harina de trigo", "Aceite para freír", "Plátano verde", "Tomate", "Cebolla", "Lechuga", "Ají costeño", "Suero costeño"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283357/Arroz_de_coco_con_pescado_frito_f3cloe.jpg"
+            },
+             {
+                "title": "Butifarra con bollo de yuca",
+                "category": "Almuerzo",
+                "ingredients": ["Butifarra", "Yuca", "Sal", "Ajo", "Comino", "Aceite"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760287471/Butifarra_con_bollo_de_yuca_ypkxel.jpg"
+            },
+            {
+                "title": "Arroz de lisa",
+                "category": "Almuerzo",
+                "ingredients": ["Arroz", "Lisa", "Verduras"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283359/Arroz_de_lisa_cwbbja.png"
+            },
+             {
+                "title": "Espaguetis",
+                "category": "Almuerzo",
+                "ingredients": ["Espaguetis", "Salsa de tomate", "Carne molida", "Cebolla", "Ajo", "Sal", "Pimienta", "Queso parmesano"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283370/Espaguetis_fdizwr.jpg"
+            },
+            {
+                "title": "Salchipapa",
+                "category": "Snacks",
+                "ingredients": ["Salchichas", "Papa", "Salsa de tomate", "Mayonesa", "Mostaza", "Queso rallado"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283792/Salchipapa_z5awz1.jpg"
+            },
+            {
+                "title": "Hamburguesas",
+                "category": "Cena",
+                "ingredients": ["Pan de hamburguesa", "Carne molida", "Lechuga", "Tomate", "Cebolla", "Queso", "Salsa", "Mostaza", "Aceite"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283370/Hamburguesas_kkmuab.jpg"
+            },
+            {
+                "title": "Perro caliente",
+                "category": "Snacks",
+                "ingredients": ["Pan para perro caliente", "Salchicha", "Salsa de tomate", "Mayonesa", "Mostaza", "Queso rallado", "Papas chips"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283791/Perro_caliente_xp8tcq.jpg"
+            },
+            {
+                "title": "Lasaña",
+                "category": "Cena",
+                "ingredients": ["Placa de lasaña", "Carne molida", "Salsa de tomate", "Queso ricotta", "Queso mozzarella", "Espinaca", "Sal", "Pimienta"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283370/Lasa%C3%B1a_pdtfh3.png"
+            },
+            {
+                "title": "Arroz con huevo",
+                "category": "Desayuno",
+                "ingredients": ["Arroz", "Huevo", "Aceite"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283358/Arroz_con_huevo_rstnbh.jpg"
+            },
+            {
+                "title": "Arroz de leche",
+                "category": "Postres",
+                "ingredients": ["Arroz", "Leche", "Azúcar", "Canela", "Pasas", "Mantequilla", "Sal"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283359/Arroz_de_leche_i1ol1k.jpg"
+            },
+            {
                 "title": "Arepa de huevo",
                 "category": "Desayuno",
                 "ingredients": ["Arepa de maíz","Huevo","Sal"],
@@ -149,6 +239,54 @@ class Command(BaseCommand):
                 "category": "Desayuno",
                 "ingredients": ["Arepa de maíz", "Queso costeño", "Mantequilla"],
                 "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760035288/arepas-con-queso_nvujwx.jpg"
+            },
+            {
+                "title": "Empanada de pollo",
+                "category": "Snacks",
+                "ingredients": ["Masa de maíz", "Pollo", "Papa", "Cebolla"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760035292/empanada-pollo_une5wh.jpg"
+            },
+            {
+                "title": "Bandeja paisa",
+                "category": "Almuerzo",
+                "ingredients": ["Arroz", "Frijoles", "Carne molida", "Chicharrón", "Huevo", "Plátano maduro", "Aguacate", "Arepa", "Chorizo", "Morcilla"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283358/Bandeja_paisa_ge1vew.jpg"
+            },
+            {
+                "title": "Dulce de coco",
+                "category": "Postres",
+                "ingredients": ["Coco rallado", "Leche", "Azúcar", "Canela", "Mantequilla", "Sal"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283362/Dulce_de_coco_b2tjka.jpg"
+            },
+            {
+                "title": "Arroz de coco con carne guisada",
+                "category": "Almuerzo",
+                "ingredients": ["Arroz", "Carne de res", "Leche de coco", "Cebolla", "Ajo", "Comino", "Sal", "Aceite", "Agua"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760287813/Arroz_de_coco_con_carne_guisada_xleg29.jpg"
+            },
+            {
+                "title": "Arroz de camarón",
+                "category": "Almuerzo",
+                "ingredients": ["Arroz", "Camarones", "Cebolla", "Ajo", "Comino", "Sal", "Aceite", "Agua"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283358/Arroz_de_camar%C3%B3n_ayrtxj.jpg"
+            },
+            {
+                "title": "Cocada negra",
+                "category": "Postres",
+                "ingredients": ["Coco", "Panela", "Canela"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283361/Cocada_negra_eqvmx8.jpg"
+            },
+            {
+                "title": "Fresas con crema",
+                "category": "Postres",
+                "ingredients": ["Fresas", "Crema de leche", "Azúcar", "Vainilla"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283370/Fresas_con_crema_jmj067.jpg"
+            },
+            {
+                "title": "Postre de tres leches",
+                "category": "Postres",
+                "ingredients": ["Bizcocho", "Leche evaporada", "Leche condensada", "Crema de leche", "Vainilla"],
+                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283792/Postre_de_tres_leches_wwzyj3.jpg"
             },
             {
                 "title": "Bollo limpio",
@@ -179,12 +317,6 @@ class Command(BaseCommand):
                 "category": "Snacks",
                 "ingredients": ["Masa de maíz", "Carne molida", "Papa", "Cebolla"],
                 "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760035292/empanada-carne_uqadjz.jpg"
-            },
-            {
-                "title": "Empanada de pollo",
-                "category": "Snacks",
-                "ingredients": ["Masa de maíz", "Pollo", "Papa", "Cebolla"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760035292/empanada-pollo_une5wh.jpg"
             },
             {
                 "title": "Butifarra soledeña",
@@ -223,12 +355,6 @@ class Command(BaseCommand):
                 "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283358/Arroz_con_coco_xtjawy.jpg"
             },
             {
-                "title": "Arroz de lisa",
-                "category": "Almuerzo",
-                "ingredients": ["Arroz", "Lisa", "Verduras"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283359/Arroz_de_lisa_cwbbja.png"
-            },
-            {
                 "title": "Patacones",
                 "category": "Snacks",
                 "ingredients": ["Plátano verde", "Sal", "Aceite"],
@@ -245,12 +371,6 @@ class Command(BaseCommand):
                 "category": "Almuerzo",
                 "ingredients": ["Ñame", "Queso costeño", "Suero costeño"],
                 "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283370/Mote_de_queso_zw5b4u.jpg"
-            },
-            {
-                "title": "Sopa de mondongo",
-                "category": "Almuerzo",
-                "ingredients": ["Mondongo de res", "Papa", "Yuca", "Verduras"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283792/Sopa_de_mondongo_ca9cmc.jpg"
             },
             {
                 "title": "Sopa de guandú",
@@ -305,12 +425,6 @@ class Command(BaseCommand):
                 "category": "Postres",
                 "ingredients": ["Coco", "Azúcar", "Leche"],
                 "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283360/Cocada_blanca_gwkgpx.jpg"
-            },
-            {
-                "title": "Cocada negra",
-                "category": "Postres",
-                "ingredients": ["Coco", "Panela", "Canela"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283361/Cocada_negra_eqvmx8.jpg"
             },
             {
                 "title": "Dulce de guayaba",
@@ -397,12 +511,6 @@ class Command(BaseCommand):
                 "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283793/Tamal_de_pollo_q1nvux.jpg"
             },
             {
-                "title": "Sancocho de gallina",
-                "category": "Almuerzo",
-                "ingredients": ["Gallina", "Yuca", "Plátano verde"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283792/Sancocho_de_gallina_jmglhg.jpg"
-            },
-            {
                 "title": "Sancocho de pescado",
                 "category": "Almuerzo",
                 "ingredients": ["Pescado", "Yuca", "Plátano verde"],
@@ -425,12 +533,6 @@ class Command(BaseCommand):
                 "category": "Almuerzo",
                 "ingredients": ["Costilla de res", "Papa", "Arroz"],
                 "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283793/Sudado_de_costilla_owfyky.jpg"
-            },
-            {
-                "title": "Arroz con huevo",
-                "category": "Desayuno",
-                "ingredients": ["Arroz", "Huevo", "Aceite"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283358/Arroz_con_huevo_rstnbh.jpg"
             },
             {
                 "title": "Calentado costeño",
@@ -589,72 +691,6 @@ class Command(BaseCommand):
                 "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760287255/Chuzo_mixto_lldrgg.jpg"
             },
             {
-                "title": "Sopa de costilla",
-                "category": "Almuerzo",
-                "ingredients": ["Costilla de res", "Papa", "Zanahoria", "Cebolla", "Ajo", "Cilantro", "Comino", "Sal", "Agua"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283792/Sopa_de_costilla_ui8dyl.jpg"
-            },
-            {
-                "title": "Pizza",
-                "category": "Cena",
-                "ingredients": ["Masa de pizza", "Salsa de tomate", "Queso mozzarella", "Pepperoni", "Champiñones", "Aceitunas", "Orégano", "Aceite de oliva"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283792/Pizza_frgss0.jpg"
-            },
-            {
-                "title": "Chicharrón con yuca",
-                "category": "Almuerzo",
-                "ingredients": ["Carne de cerdo", "Yuca", "Sal", "Ajo", "Comino", "Aceite", "Limón", "Ají"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760287387/Chicharr%C3%B3n_con_yuca_tnhxm7.png"
-            },
-            {
-                "title": "Arroz de coco con pescado frito",
-                "category": "Almuerzo",
-                "ingredients": ["Arroz blanco", "Leche de coco", "Azúcar morena", "Sal", "Agua", "Aceite vegetal", "Mantequilla", "Coco rallado", "Pescado", "Ajo", "Comino", "Pimienta", "Limón", "Harina de trigo", "Aceite para freír", "Plátano verde", "Tomate", "Cebolla", "Lechuga", "Ají costeño", "Suero costeño"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283357/Arroz_de_coco_con_pescado_frito_f3cloe.jpg"
-            },
-            {
-                "title": "Butifarra con bollo de yuca",
-                "category": "Almuerzo",
-                "ingredients": ["Butifarra", "Yuca", "Sal", "Ajo", "Comino", "Aceite"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760287471/Butifarra_con_bollo_de_yuca_ypkxel.jpg"
-            },
-            {
-                "title": "Espaguetis",
-                "category": "Almuerzo",
-                "ingredients": ["Espaguetis", "Salsa de tomate", "Carne molida", "Cebolla", "Ajo", "Sal", "Pimienta", "Queso parmesano"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283370/Espaguetis_fdizwr.jpg"
-            },
-            {
-                "title": "Salchipapa",
-                "category": "Snacks",
-                "ingredients": ["Salchichas", "Papa", "Salsa de tomate", "Mayonesa", "Mostaza", "Queso rallado"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283792/Salchipapa_z5awz1.jpg"
-            },
-            {
-                "title": "Hamburguesas",
-                "category": "Cena",
-                "ingredients": ["Pan de hamburguesa", "Carne molida", "Lechuga", "Tomate", "Cebolla", "Queso", "Salsa", "Mostaza", "Aceite"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283370/Hamburguesas_kkmuab.jpg"
-            },
-            {
-                "title": "Perro caliente",
-                "category": "Snacks",
-                "ingredients": ["Pan para perro caliente", "Salchicha", "Salsa de tomate", "Mayonesa", "Mostaza", "Queso rallado", "Papas chips"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283791/Perro_caliente_xp8tcq.jpg"
-            },
-            {
-                "title": "Lasaña",
-                "category": "Cena",
-                "ingredients": ["Placa de lasaña", "Carne molida", "Salsa de tomate", "Queso ricotta", "Queso mozzarella", "Espinaca", "Sal", "Pimienta"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283370/Lasa%C3%B1a_pdtfh3.png"
-            },
-            {
-                "title": "Arroz de leche",
-                "category": "Postres",
-                "ingredients": ["Arroz", "Leche", "Azúcar", "Canela", "Pasas", "Mantequilla", "Sal"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283359/Arroz_de_leche_i1ol1k.jpg"
-            },
-            {
                 "title": "Empanada de queso",
                 "category": "Snacks",
                 "ingredients": ["Masa de maíz", "Queso", "Sal", "Aceite"],
@@ -666,42 +702,7 @@ class Command(BaseCommand):
                 "ingredients": ["Masa de maíz", "Pollo", "Papa", "Cebolla", "Ajo", "Sal", "Aceite"],
                 "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760035292/empanada-pollo_une5wh.jpg"
             },
-            {
-                "title": "Bandeja paisa",
-                "category": "Almuerzo",
-                "ingredients": ["Arroz", "Frijoles", "Carne molida", "Chicharrón", "Huevo", "Plátano maduro", "Aguacate", "Arepa", "Chorizo", "Morcilla"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283358/Bandeja_paisa_ge1vew.jpg"
-            },
-            {
-                "title": "Dulce de coco",
-                "category": "Postres",
-                "ingredients": ["Coco rallado", "Leche", "Azúcar", "Canela", "Mantequilla", "Sal"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283362/Dulce_de_coco_b2tjka.jpg"
-            },
-            {
-                "title": "Arroz de coco con carne guisada",
-                "category": "Almuerzo",
-                "ingredients": ["Arroz", "Carne de res", "Leche de coco", "Cebolla", "Ajo", "Comino", "Sal", "Aceite", "Agua"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760287813/Arroz_de_coco_con_carne_guisada_xleg29.jpg"
-            },
-            {
-                "title": "Arroz de camarón",
-                "category": "Almuerzo",
-                "ingredients": ["Arroz", "Camarones", "Cebolla", "Ajo", "Comino", "Sal", "Aceite", "Agua"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283358/Arroz_de_camar%C3%B3n_ayrtxj.jpg"
-            },
-            {
-                "title": "Fresas con crema",
-                "category": "Postres",
-                "ingredients": ["Fresas", "Crema de leche", "Azúcar", "Vainilla"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283370/Fresas_con_crema_jmj067.jpg"
-            },
-            {
-                "title": "Postre de tres leches",
-                "category": "Postres",
-                "ingredients": ["Bizcocho", "Leche evaporada", "Leche condensada", "Crema de leche", "Vainilla"],
-                "imgUrl": "https://res.cloudinary.com/dqlrqzo1a/image/upload/v1760283792/Postre_de_tres_leches_wwzyj3.jpg"
-            },
+           
             
             
             
