@@ -1,5 +1,5 @@
 from rest_framework.routers import DefaultRouter
-from .views import FoodViewSet, CategoryViewSet, IngredientViewSet, AllFoodsView, FoodWithRatingsView
+from .views import FoodViewSet, CategoryViewSet, IngredientViewSet, FoodWithRatingsView, MyRatingsView
 from django.urls import path, include
 
 router = DefaultRouter()
@@ -10,6 +10,6 @@ router.register("ingredients", IngredientViewSet, basename="ingredients")
 
 urlpatterns = [
     path('',include(router.urls)),
-    path('foods',AllFoodsView.as_view()),
     path('ratings', FoodWithRatingsView.as_view(), name='food-ratings'),
+    path('my_ratings', MyRatingsView.as_view(), name='my_ratings'),
 ]

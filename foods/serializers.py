@@ -41,6 +41,18 @@ class FoodSerializer(serializers.ModelSerializer):
         if ingredients is not None:
             instance.ingredients.set(ingredients)
         return instance
+    
+class MyRatingsSerializer(serializers.ModelSerializer):
+    title = serializers.CharField(source='food.title', read_only=True)
+    imgUrl = serializers.CharField(source='food.imgUrl', read_only=True)
+    date = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Rating
+        fields = ['title', 'imgUrl', 'rating', 'date']
+
+    def get_date(self, obj):
+        return obj.timestamp.strftime("%d/%m/%Y") if obj.timestamp else ""
 
 class FoodWithRatingSerializer(serializers.ModelSerializer):
     rating = serializers.SerializerMethodField()

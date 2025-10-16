@@ -56,6 +56,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.save()
         return user
 
+
 class UserProfileSerializer(serializers.ModelSerializer):
     total_rated_foods = serializers.SerializerMethodField()
     rating_average = serializers.SerializerMethodField()
