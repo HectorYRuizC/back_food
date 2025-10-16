@@ -4,7 +4,7 @@ from django.urls import include, path
 
 
 router = DefaultRouter()
-router.register("/sessions", SessionViewSet, basename="sessions")
+router.register("sessions", SessionViewSet, basename="sessions")
 urlpatterns = router.urls
 
 urlpatterns = [

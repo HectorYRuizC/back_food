@@ -3,17 +3,23 @@ from rest_framework.views import APIView
 from django_filters.rest_framework import FilterSet, filters
 from rest_framework.response import Response
 from .models import Food, Category, Ingredient
-from .serializers import FoodSerializer, CategorySerializer, IngredientSerializer, FoodWithRatingSerializer
+from .serializers import FoodSerializer, CategorySerializer, IngredientSerializer, FoodWithRatingSerializer, MyRatingsSerializer
 from core.permissions import IsStaffOrReadOnly
 from ratings.models import Rating
 
 
 
-class AllFoodsView(APIView):
+class MyRatingsView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
     def get(self, request):
-        foods = Food.objects.all()
-        serializer = FoodSerializer(foods, many=True)
-        return Response(serializer.data,status=status.HTTP_200_OK)
+        user = request.user
+        ratings = Rating.objects.filter(user=user).select_related('food').order_by('-timestamp')
+        
+        serializer = MyRatingsSerializer(ratings, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+
 
 class FoodWithRatingsView(generics.ListAPIView):
     pagination_class = None
