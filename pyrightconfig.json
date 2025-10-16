@@ -1,0 +1,10 @@
+{
+  "typeCheckingMode": "basic",
+  "reportMissingImports": true,
+  "reportMissingTypeStubs": false,
+  "plugins": [
+    {
+      "module": "mypy_django_plugin.main"
+    }
+  ]
+}

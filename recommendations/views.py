@@ -10,19 +10,24 @@ from rest_framework.permissions import IsAuthenticated
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def user_packs(request):
-    user = request.user
-
-    # Prefetch foods through items → avoids N+1 queries
-    sessions = RecommendationSession.objects.filter(user=user).prefetch_related('items__food')
+def recommendation_packs(request):
+    """Return all recommendation sessions for the current user,
+    where each session includes an array of foods with their predicted ratings."""
+    sessions = RecommendationSession.objects.filter(user=request.user).prefetch_related("items__food")
 
     result = []
     for session in sessions:
-        foods = [item.food.title for item in session.items.all()] # type: ignore
-        pack_date = session.created_at.strftime('%d/%m/%Y')
+        foods = [
+            {
+                "title": item.food.title,
+                "predicted_rating": item.predicted_rating
+            }
+            for item in session.items.all()# type: ignore[attr-defined]
+        ]
         result.append({
-            'foods': foods,
-            'pack_date': pack_date
+            "id": session.id,# type: ignore[attr-defined]
+            "created_at": session.created_at.strftime("%d/%m/%Y"),
+            "foods": foods
         })
 
     return Response(result)
@@ -35,7 +40,7 @@ class SessionViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         qs = RecommendationSession.objects.all().prefetch_related("items__food")
-        if self.request.user.is_superuser:
+        if self.request.user.is_superuser: # type: ignore[attr-defined]
             return qs
         return qs.filter(user=self.request.user)
 
