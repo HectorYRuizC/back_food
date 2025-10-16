@@ -1,4 +1,4 @@
-import csv
+import csv, random
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
 from foods.models import Food
@@ -8,7 +8,7 @@ from django.db import transaction
 User = get_user_model()
 
 class Command(BaseCommand):
-    help = "Carga usuarios y calificaciones desde ratings/datos/datos.csv"
+    help = "Carga usuarios y calificaciones desde ratings/datos/datos.csv con nombres realistas"
 
     @transaction.atomic
     def handle(self, *args, **options):
@@ -22,21 +22,37 @@ class Command(BaseCommand):
             self.stdout.write(self.style.ERROR(f"❌ No se encontró el archivo: {file_path}"))
             return
 
-        # Crear 70 usuarios genéricos si no existen
-        user_count = 70
+        # Listas base de nombres
+        first_names = [
+            "Juan", "Pedro", "María", "Laura", "Andrés", "Camila", "Diego", "Ana",
+            "Sofía", "Daniel", "Carolina", "Luis", "Valentina", "Julián", "Paula",
+            "David", "Fernanda", "Santiago", "Isabella", "Nicolás", "Luisa", "Jorge",
+            "Adriana", "Sebastián", "Natalia", "Felipe", "Gabriela", "Ricardo", "Manuela",
+            "José", "Verónica", "Cristian", "Claudia", "Esteban", "Andrea", "Mauricio",
+            "Catalina", "Héctor", "Marcela", "Óscar", "Patricia", "Tomás", "Liliana",
+            "Alejandro", "Mónica", "Samuel", "Lorena", "Emilio", "Daniela", "Fernando",
+            "Lucía", "Hernán", "Elena", "César", "Juliana", "Miguel", "Sandra",
+            "Pablo", "Ximena", "Iván", "Tatiana", "Camilo", "Gloria", "Rafael",
+            "Karina", "Gustavo", "Yesenia", "Eduardo", "Carmen", "Simón", "Raúl"
+        ]
+
+        # Mezclar aleatoriamente y tomar los primeros 70 nombres únicos
+        random.shuffle(first_names)
+        selected_names = first_names[:70]
+
         users = []
-        for i in range(1, user_count + 1):
-            username = f"user{i}"
-            email = f"user{i}@example.com"
+        for i, name in enumerate(selected_names, start=1):
+            username = name.lower()
+            email = f"{username}{i}@example.com"
             user, created = User.objects.get_or_create(username=username, email=email)
             if created:
                 user.set_password("12345678")
                 user.save()
             users.append(user)
 
-        self.stdout.write(self.style.SUCCESS(f"✅ {len(users)} usuarios creados o verificados."))
+        self.stdout.write(self.style.SUCCESS(f"✅ {len(users)} usuarios creados o verificados con nombres realistas."))
 
-        # Crear las calificaciones
+        # Crear calificaciones
         ratings_created = 0
         for row in data:
             try:
@@ -44,12 +60,11 @@ class Command(BaseCommand):
                 food_id = int(row["id_comida"])
                 rating_value = int(row["clasificacion"])
 
-                user = users[user_id - 1]  # usuarios comienzan desde 1
+                user = users[user_id - 1]
                 food = Food.objects.filter(id=food_id).first()
                 if not food:
                     continue
 
-                # Evitar duplicados
                 _, created = Rating.objects.get_or_create(
                     user=user,
                     food=food,
