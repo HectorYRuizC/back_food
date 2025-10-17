@@ -11,13 +11,11 @@ RUN pip install -r requirements.txt
 
 COPY . /app
 
+RUN chmod +x /app/entrypoint.sh
+
 ENV DJANGO_SETTINGS_MODULE=backend.config.settings.prod
 
-CMD ["bash", "-lc", "python manage.py collectstatic --noinput && \
-python manage.py migrate && \
-python manage.py seed_foods && \
-python manage.py seed_users_and_ratings && \
-python manage.py runserver 0.0.0.0:8000"]
+ENTRYPOINT ["/app/entrypoint.sh"]
 
 
     #CMD ["bash", "-lc", "python manage.py collectstatic --noinput && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
