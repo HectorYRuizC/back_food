@@ -1,3 +1,4 @@
+import random
 from django.shortcuts import get_object_or_404
 from rest_framework import viewsets, permissions, status
 from rest_framework.decorators import action, api_view, permission_classes
@@ -10,6 +11,7 @@ from core.permissions import IsOwner
 from rest_framework.permissions import IsAuthenticated
 from .ml_service import train_model, recommend_for_user
 from ratings.models import Rating
+from django.db.models import Count
 
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
@@ -23,12 +25,28 @@ def last_recommendations(request):
         .order_by('-created_at')[:4]
     )
 
-    # Si no existen recomendaciones aún
+    # Si no existen recomendaciones aún → devolver comidas aleatorias
     if not last_items.exists():
+        random_foods = list(Food.objects.annotate(num_ingredients=Count("ingredients")))
+        random.shuffle(random_foods)
+        random_foods = random_foods[:4]
+
+        data = []
+        for food in random_foods:
+            data.append({
+                "id": food.pk,
+                "title": food.title,
+                "category": food.category.name,
+                "image": food.imgUrl,
+                "ingredients": [ing.name for ing in food.ingredients.all()],
+                "predicted_rating":  0.0 # aún no hay predicciones
+            })
+
         return Response({
             "user": user.username,
-            "message": "Aún no tienes recomendaciones generadas. Prueba crear una sesión nueva.",
-            "recommendations": []
+            "count": len(data),
+            "recommendations": data,
+            "message": "Aún no tienes recomendaciones generadas, aquí tienes algunas sugerencias aleatorias."
         }, status=200)
 
     # Si hay recomendaciones, formatearlas igual que el modelo ML
