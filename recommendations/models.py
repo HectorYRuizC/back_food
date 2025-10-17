@@ -10,6 +10,7 @@ class SessionItem(models.Model):
     session = models.ForeignKey(RecommendationSession, on_delete=models.CASCADE, related_name="items")
     food = models.ForeignKey(Food, on_delete=models.CASCADE)
     predicted_rating = models.PositiveSmallIntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         unique_together = ("session", "food")

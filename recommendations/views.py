@@ -11,6 +11,51 @@ from rest_framework.permissions import IsAuthenticated
 from .ml_service import train_model, recommend_for_user
 from ratings.models import Rating
 
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def last_recommendations(request):
+    user = request.user
+
+    # Buscar las últimas 4 recomendaciones asociadas al usuario
+    last_items = (
+        SessionItem.objects
+        .filter(session__user=user)
+        .order_by('-created_at')[:4]
+    )
+
+    # Si no existen recomendaciones aún
+    if not last_items.exists():
+        return Response({
+            "user": user.username,
+            "message": "Aún no tienes recomendaciones generadas. Prueba crear una sesión nueva.",
+            "recommendations": []
+        }, status=200)
+
+    # Si hay recomendaciones, formatearlas igual que el modelo ML
+    data = []
+    for item in last_items:
+        food = item.food
+        data.append({
+            "id": food.pk,
+            "title": food.title,
+            "category": food.category.name,
+            "image": food.imgUrl,
+            "ingredients": [ing.name for ing in food.ingredients.all()],
+            "predicted_rating": float(item.predicted_rating) if hasattr(item, "predicted_rating") else None,
+        })
+
+    return Response({
+        "user": user.username,
+        "count": len(data),
+        "recommendations": data,
+        "message": "Últimas recomendaciones obtenidas exitosamente."
+    }, status=200)
+
+
+
+
+
+
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
