@@ -7,6 +7,7 @@ class Rol(models.Model):
         return self.name
 
 class User(AbstractUser):
+    username = models.CharField(max_length=150, unique=False)
     email = models.EmailField(unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     rol = models.ForeignKey(Rol,on_delete=models.CASCADE, related_name="user_rol", null=True)
